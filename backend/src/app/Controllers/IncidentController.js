@@ -1,7 +1,20 @@
 import connection from '../../database/connection';
+import * as Yup from 'yup';
 
 class IncidentController {
   async store(req, res) {
+    const schema = Yup.object().shape({
+      title: Yup.string().required(),
+      description: Yup.string().required(),
+      value: Yup.number(),
+    });
+
+    if (!(await schema.isValid(req.body))) {
+      return res.status(400).json({
+        error: 'Validation fails',
+      });
+    }
+
     const { title, description, value } = req.body;
     const ong_id = req.headers.authorization;
 

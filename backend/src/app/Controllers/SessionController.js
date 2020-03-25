@@ -1,7 +1,18 @@
 import connection from '../../database/connection';
+import * as Yup from 'yup';
 
 class ProfileController {
   async store(req, res) {
+    const schema = Yup.object().shape({
+      id: Yup.string().required().length(8),
+    });
+
+    if (!(await schema.isValid(req.body))) {
+      return res.status(400).json({
+        error: 'Validation fails',
+      });
+    }
+
     const { id } = req.body;
 
     const ong = await connection('ongs').where('id', id).select('name').first();
