@@ -34,6 +34,10 @@ class OngController {
     return res.json({ id });
   }
 
+  // add update
+
+  // add show
+
   async index(req, res) {
     const ongs = await connection('ongs').select('*');
 
