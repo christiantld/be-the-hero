@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { Form, Input } from '@rocketseat/unform';
+import copy from 'copy-to-clipboard';
 import * as Yup from 'yup';
 import { FiArrowLeft } from 'react-icons/fi';
 import { toast } from 'react-toastify';
+
 import logo from '../../assets/logo.svg';
 import api from '../../services/api';
 
@@ -31,8 +33,12 @@ export default function Register() {
 
     try {
       const response = await api.post('register', data);
+      copy(response.data.id);
 
-      alert(`Seu ID de acesso: ${response.data.id}`);
+      toast.success(
+        `ONG cadastrada com sucesso, seu ID ${response.data.id} foi copiado para o clipboard!`,
+        { autoClose: 5000 }
+      );
 
       history.push('/');
     } catch (error) {
@@ -58,7 +64,7 @@ export default function Register() {
         <Form schema={schema} onSubmit={handleRegister}>
           <Input name="name" type="text" placeholder="Nome da ONG" />
           <Input name="email" type="email" placeholder="E-mail" />
-          <Input name="whatsapp" type="text" placeholder="WhatsApp" />
+          <Input name="whatsapp" type="tel" placeholder="WhatsApp" />
           <div className="input-group">
             <Input name="city" type="text" placeholder="Cidade" />
             <Input
