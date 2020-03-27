@@ -3,7 +3,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { Form, Input } from '@rocketseat/unform';
 import * as Yup from 'yup';
 import { FiLogIn } from 'react-icons/fi';
-
+import { toast } from 'react-toastify';
 import api from '../../services/api';
 import { Container } from './styles';
 import logo from '../../assets/logo.svg';
@@ -25,7 +25,7 @@ export default function Logon() {
       localStorage.setItem('ongName', response.data.name);
       history.push('/profile');
     } catch (error) {
-      alert(`Erro no login, tente novamente.`);
+      toast.error('Erro ao efetuar login, tente novamente');
     }
   }
   return (

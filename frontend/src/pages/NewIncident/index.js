@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import { toast } from 'react-toastify';
 import { Link, useHistory } from 'react-router-dom';
 import { Form, Input } from '@rocketseat/unform';
 import * as Yup from 'yup';
@@ -31,12 +31,12 @@ export default function NewIncident() {
 
       history.push('/profile');
     } catch (error) {
-      alert('Erro ao cadastrar caso, tente novamente');
+      toast.error('Caso deletado com sucesso');
     }
   }
   return (
     <Container>
-      <Header />
+      <Header showIncidentButton="hidden" />
       <Content>
         <BoxContent>
           <section className="form">

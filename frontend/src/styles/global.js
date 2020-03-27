@@ -1,4 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
+import { lighten } from 'polished';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap');
@@ -42,6 +44,13 @@ export default createGlobalStyle`
     border: 1px solid #dcdce6;
     border-radius: 8px;
     padding: 0 24px;
+    transition: border 0.2s;
+
+    &:focus {
+      border: 1px solid ${lighten(0.1, '#e02041')};
+        box-shadow: 0 0 4px ${lighten(0.1, '#e02041')};
+
+    }
   }
   form textarea {
     width: 100%;
@@ -54,6 +63,11 @@ export default createGlobalStyle`
     border-radius: 8px;
     padding: 16px 24px;
     line-height: 24px;
+
+    &:focus {
+      border: 1px solid ${lighten(0.1, '#e02041')};
+        box-shadow: 0 0 4px ${lighten(0.1, '#e02041')};
+    }
   }
 
   .button {

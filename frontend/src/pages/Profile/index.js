@@ -1,13 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import { FiTrash2 } from 'react-icons/fi';
+import { FiTrash2, FiArrowRight, FiArrowLeft } from 'react-icons/fi';
+import { toast } from 'react-toastify';
 import Header from '../../components/Header';
 import api from '../../services/api';
-import { Container } from './styles';
+import { Container, PageActions } from './styles';
 
 export default function Profile() {
   const ongId = localStorage.getItem('ongID');
 
   const [incidents, setIncidents] = useState([]);
+  const [page, setPage] = useState(1);
+
+  function handlePage(action) {
+    action === 'back' ? setPage(page - 1) : setPage(page + 1);
+  }
 
   async function handleDeleteIncident(id) {
     try {
@@ -18,8 +24,9 @@ export default function Profile() {
       });
 
       setIncidents(incidents.filter((incident) => incident.id !== id));
+      toast.success('Caso deletado com sucesso');
     } catch (error) {
-      alert('Erro ao deletar o caso, tente novamente');
+      toast.error('Erro ao deletar o caso, tente novamente');
     }
   }
 
@@ -29,15 +36,23 @@ export default function Profile() {
         headers: {
           Authorization: ongId,
         },
+        params: {
+          page,
+        },
       })
       .then((response) => {
         setIncidents(response.data);
+        console.log(incidents);
       });
-  }, [ongId]);
+  }, [ongId, page]);
   return (
     <Container>
       <Header />
-      <h1>Casos Cadastrados</h1>
+      {incidents.length > 0 ? (
+        <h1>Casos cadastrados</h1>
+      ) : (
+        <h1>Nenhum Caso Cadastrado</h1>
+      )}
       <ul>
         {incidents.map((incident) => (
           <li key={incident.id}>
@@ -64,6 +79,23 @@ export default function Profile() {
           </li>
         ))}
       </ul>
+      <PageActions>
+        <button
+          type="button"
+          disabled={page < 2}
+          onClick={() => handlePage('back')}
+        >
+          <FiArrowLeft size={20} color="##41414d" />
+        </button>
+        <span>Página {page}</span>
+        <button
+          type="button"
+          disabled={page > 2 && incidents.length === 0}
+          onClick={() => handlePage('next')}
+        >
+          <FiArrowRight size={20} color="##41414d" />
+        </button>
+      </PageActions>
     </Container>
   );
 }

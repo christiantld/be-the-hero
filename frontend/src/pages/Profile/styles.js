@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { lighten } from 'polished';
 
 export const Container = styled.div`
   width: 100%;
@@ -22,6 +23,12 @@ export const Container = styled.div`
       padding: 24px;
       border-radius: 8px;
       position: relative;
+      transition: border 0.2s, box-shadow 0.2s;
+
+      &:hover {
+        border: 1px solid ${lighten(0.1, '#e02041')};
+        box-shadow: 0 0 4px ${lighten(0.1, '#e02041')};
+      }
 
       button {
         position: absolute;
@@ -50,5 +57,37 @@ export const Container = styled.div`
         margin-top: 32px;
       }
     }
+  }
+`;
+export const PageActions = styled.div`
+  padding-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  button {
+    transition: opacity 0.25s ease-out;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    outline: 0;
+    border: 0;
+    padding: 8px;
+    color: #41414d;
+    background: #fff;
+    &:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+
+    &:hover {
+      color: #e02041;
+    }
+  }
+
+  span {
+    color: #41414d;
+    font-weight: 700;
+    font-size: 14px;
   }
 `;

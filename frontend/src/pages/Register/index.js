@@ -3,6 +3,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { Form, Input } from '@rocketseat/unform';
 import * as Yup from 'yup';
 import { FiArrowLeft } from 'react-icons/fi';
+import { toast } from 'react-toastify';
 import logo from '../../assets/logo.svg';
 import api from '../../services/api';
 
@@ -35,7 +36,7 @@ export default function Register() {
 
       history.push('/');
     } catch (error) {
-      alert(`Erro no cadastro, tente novamente.`);
+      toast.error(`Erro no cadastro, tente novamente.`);
     }
   }
   return (
