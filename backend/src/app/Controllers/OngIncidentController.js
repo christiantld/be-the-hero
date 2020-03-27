@@ -13,8 +13,8 @@ class OngIncidentController {
     const incidents = await connection('incidents')
       .join('ongs', 'ong_id', '=', 'ongs.id')
       .where('ong_id', ong_id)
-      .limit(5)
-      .offset((page - 1) * 5)
+      .limit(6)
+      .offset((page - 1) * 6)
       .select([
         'incidents.*',
         'ongs.name',
