@@ -14,31 +14,25 @@
 
 ---
 
-<p align="justified"> Few lines describing your project.
+<p align="center">🧐 Frontend desenvolvido em React para consumir a API REST do Be the Hero.
     <br>
 </p>
 
-## 📝 Table of Contents
+## 📝 Conteúdo
 
-- [About](#about)
-- [Getting Started](#getting_started)
-- [Deployment](#deployment)
-- [Usage](#usage)
-- [Built Using](#built_using)
-- [TODO](../TODO.md)
-- [Contributing](../CONTRIBUTING.md)
-- [Authors](#authors)
-- [Acknowledgments](#acknowledgement)
+- [Sobre](#about)
+- [Inicializando a aplicação](#getting_started)
+- [Uso](#usage)
+- [Ferramentas](#built_using)
+- [Autor](#authors)
+- [Considerações finais](#acknowledgement)
+---
 
-## 🧐 About <a name = "about"></a>
-
-Write about 1-2 paragraphs describing the purpose of your project.
-
-## 🏁 Getting Started <a name = "getting_started"></a>
+## 🏁 Inicializando a aplicação <a name = "getting_started"></a>
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
 
-### Prerequisites
+### Pré-requisitos
 
 What things you need to install the software and how to install them.
 
@@ -46,7 +40,7 @@ What things you need to install the software and how to install them.
 Give examples
 ```
 
-### Installing
+### Instalação
 
 A step by step series of examples that tell you how to get a development env running.
 
@@ -64,49 +58,29 @@ until finished
 
 End with an example of getting some data out of the system or using it for a little demo.
 
-## 🔧 Running the tests <a name = "tests"></a>
 
-Explain how to run the automated tests for this system.
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## 🎈 Usage <a name="usage"></a>
+## 🎈 Uso <a name="usage"></a>
 
 Add notes about how to use the system.
 
-## 🚀 Deployment <a name = "deployment"></a>
+## ⛏️ Ferramentas <a name = "built_using"></a>
 
-Add additional notes about how to deploy this on a live system.
+- [React](https://pt-br.reactjs.org/) - Javascript Framework
+- [Axios](https://github.com/axios/axios) - Promise based HTTP clien
+- [React Icons](https://react-icons.netlify.com/#/) - Icons
+- [Copy to clipboard](https://www.npmjs.com/package/copy-to-clipboard)
+- [Yup](https://github.com/jquense/yup) - Validation
+- [Unform](https://unform.dev/guides/basic-form/) - Form Validation
+- [Toastify](https://fkhadra.github.io/react-toastify/) - Toasts
+- [Styled-Components](https://styled-components.com/) - Styling
+- [Eslint](https://eslint.org/) - Linter
+- [Prettier](https://prettier.io/) - Code Formatter
 
-## ⛏️ Built Using <a name = "built_using"></a>
 
-- [MongoDB](https://www.mongodb.com/) - Database
-- [Express](https://expressjs.com/) - Server Framework
-- [VueJs](https://vuejs.org/) - Web Framework
-- [NodeJs](https://nodejs.org/en/) - Server Environment
+## ✍️ Autor <a name = "authors"></a>
 
-## ✍️ Authors <a name = "authors"></a>
+- [@christiantld](https://github.com/christiantld)
 
-- [@kylelobo](https://github.com/kylelobo) - Idea & Initial work
+## 🎉 Considerações finais <a name = "acknowledgement"></a>
 
-See also the list of [contributors](https://github.com/kylelobo/The-Documentation-Compendium/contributors) who participated in this project.
-
-## 🎉 Acknowledgements <a name = "acknowledgement"></a>
-
-- Hat tip to anyone whose code was used
-- Inspiration
-- References
+- Esse projeto faz parte da Semana Omnistack 11 da [@rocketseat](https://rocketseat.com.br/)
