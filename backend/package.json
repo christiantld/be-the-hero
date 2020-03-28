@@ -5,13 +5,18 @@
   "license": "MIT",
   "scripts": {
     "start": "nodemon src/server.js",
-    "start:debug": "nodemon --inspect src/server.js"
+    "start:debug": "nodemon --inspect src/server.js",
+    "test": "jest"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "celebrate": "^12.0.1",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
     "knex": "^0.20.13",
     "sqlite3": "^4.1.1",
+    "util": "^0.12.2",
     "yup": "^0.28.3"
   },
   "devDependencies": {
@@ -20,8 +25,10 @@
     "eslint-config-prettier": "^6.10.1",
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-prettier": "^3.1.2",
+    "jest": "^25.2.3",
     "nodemon": "^2.0.2",
     "prettier": "^2.0.2",
-    "sucrase": "^3.12.1"
+    "sucrase": "^3.12.1",
+    "supertest": "^4.0.2"
   }
 }
