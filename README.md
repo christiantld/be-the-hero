@@ -16,7 +16,7 @@
 
 ---
 
-<p align="center"> O Be the Hero é uma plataforma dedicada a captação de doações para Ongs. A aplicação web é dedicada as Ongs e permite o seu cadastro e a inserção de casos que precisam de ajuda. Já a aplicação mobile é destinada aos Heróis, os usuários que poderão ver a lista de casos abertos para ajuda. Por meio da aplicação mobile é possível entrar em contato diretamente com a Ong por e-mail ou Whatsapp.
+<p align="justified"> O Be the Hero é uma plataforma dedicada a captação de doações para Ongs. A aplicação web é dedicada as Ongs e permite o seu cadastro e a inserção de casos que precisam de ajuda. Já a aplicação mobile é destinada aos Heróis, os usuários que poderão ver a lista de casos abertos para ajuda. Por meio da aplicação mobile é possível entrar em contato diretamente com a Ong por e-mail ou Whatsapp.
     <br> 
 </p>
 
