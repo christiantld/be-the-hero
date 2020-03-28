@@ -14,7 +14,7 @@
 
 ---
 
-<p align="center">🧐 Backend da aplicação Be the Hero. API REST para gerenciamento de Ongs, Incidents e Sessçoes.
+<p align="center">🧐 Backend da aplicação Be the Hero. API REST para gerenciamento de Ongs, Incidents e Sessions.
     <br>
 </p>
 
