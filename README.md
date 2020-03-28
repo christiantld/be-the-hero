@@ -30,4 +30,4 @@
 
 ## 🎉 Considerações finais
 
-- Esse projeto faz parte da Semana Omnistack 11 da [@christiantld](https://rocketseat.com.br/)
+- Esse projeto faz parte da Semana Omnistack 11 da [@rocketseat](https://rocketseat.com.br/)
