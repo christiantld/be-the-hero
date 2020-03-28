@@ -19,6 +19,7 @@
 </p>
 
 ## 📝 Conteúdo
+Abaixo você encontra o Read me de cada parte da aplicação, com mais detalhes do processo e instruções de inicialização
 
 - [Backend](/backend)
 - [Frontend](/frontend)
