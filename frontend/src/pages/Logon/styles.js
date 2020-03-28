@@ -23,6 +23,10 @@ export const Container = styled.div`
       font-size: 32px;
       margin-bottom: 32px;
     }
+
+    input + input {
+      margin-top: 10px;
+    }
   }
   span {
     color: #e02041;

@@ -12,6 +12,9 @@ import api from '../../services/api';
 import { Container, Content } from './styles';
 
 const schema = Yup.object().shape({
+  password: Yup.string()
+    .required()
+    .min(6, 'A senha deve possuir no minimo 6 caracteres'),
   name: Yup.string().required('O nome da ONG é obrigatório'),
   email: Yup.string()
     .email('Insira um e-mail válido')
@@ -28,8 +31,8 @@ const schema = Yup.object().shape({
 export default function Register() {
   const history = useHistory();
 
-  async function handleRegister({ name, email, whatsapp, city, uf }) {
-    const data = { name, email, whatsapp, city, uf };
+  async function handleRegister({ name, email, whatsapp, city, uf, password }) {
+    const data = { password, name, email, whatsapp, city, uf };
 
     try {
       const response = await api.post('register', data);
@@ -64,7 +67,12 @@ export default function Register() {
         <Form schema={schema} onSubmit={handleRegister}>
           <Input name="name" type="text" placeholder="Nome da ONG" />
           <Input name="email" type="email" placeholder="E-mail" />
-          <Input name="whatsapp" type="tel" placeholder="WhatsApp" />
+          <Input
+            name="whatsapp"
+            type="tel"
+            placeholder="WhatsApp"
+            maxLength="12"
+          />
           <div className="input-group">
             <Input name="city" type="text" placeholder="Cidade" />
             <Input
@@ -75,6 +83,8 @@ export default function Register() {
               maxLength="2"
             />
           </div>
+          <hr />
+          <Input name="password" type="password" placeholder="Senha" />
           <button className="button" type="submit">
             Cadastrar
           </button>

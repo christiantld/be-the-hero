@@ -20,13 +20,14 @@ export const Container = styled.div`
 
     li {
       background: #fff;
+      border: 1px solid #fff;
       padding: 24px;
       border-radius: 8px;
       position: relative;
       transition: border 0.2s, box-shadow 0.2s;
 
       &:hover {
-        border: 1px solid ${lighten(0.1, '#e02041')};
+        border-color: ${lighten(0.1, '#e02041')};
         box-shadow: 0 0 4px ${lighten(0.1, '#e02041')};
       }
 

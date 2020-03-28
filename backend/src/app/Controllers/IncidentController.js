@@ -21,8 +21,6 @@ class IncidentController {
     res.header('X-Total-Count', count['count(*)']);
     return res.json(incidents);
   }
-
-  //listar apenas um incident
 }
 
 export default new IncidentController();

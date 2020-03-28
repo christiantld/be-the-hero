@@ -41,7 +41,7 @@ export default function Header({ showIncidentButton }) {
   );
 }
 Header.propTypes = {
-  showIncidentButton: PropTypes.bool,
+  showIncidentButton: PropTypes.string,
 };
 Header.defaultProps = {
   showIncidentButton: 'visible',

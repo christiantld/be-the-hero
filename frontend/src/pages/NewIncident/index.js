@@ -20,12 +20,12 @@ export default function NewIncident() {
 
   async function handleSubmit({ title, value }) {
     const data = { title, description, value };
-    const ongId = localStorage.getItem('ongID');
+    const token = localStorage.getItem('tokenHero');
 
     try {
       await api.post('/ong/incidents', data, {
         headers: {
-          Authorization: ongId,
+          Authorization: token,
         },
       });
 
@@ -55,7 +55,7 @@ export default function NewIncident() {
           <Form schema={schema} onSubmit={handleSubmit}>
             <Input name="title" type="text" placeholder="Titulo do caso" />
             <textarea
-              maxLength="600"
+              maxLength="400"
               name="description"
               placeholder="Descricao"
               value={description}

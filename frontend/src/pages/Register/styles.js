@@ -59,5 +59,11 @@ export const Content = styled.div`
       padding: 5px;
       align-self: flex-start;
     }
+    hr {
+      border: 0;
+      height: 1px;
+      margin: 20px;
+      background: rgba(0, 0, 0, 0.2);
+    }
   }
 `;

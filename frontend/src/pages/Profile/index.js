@@ -7,6 +7,7 @@ import { Container, PageActions } from './styles';
 
 export default function Profile() {
   const ongId = localStorage.getItem('ongID');
+  const token = localStorage.getItem('tokenHero');
 
   const [incidents, setIncidents] = useState([]);
   const [page, setPage] = useState(1);
@@ -19,7 +20,7 @@ export default function Profile() {
     try {
       await api.delete(`/ong/incidents/${id}`, {
         headers: {
-          Authorization: ongId,
+          Authorization: token,
         },
       });
 
@@ -30,26 +31,27 @@ export default function Profile() {
     }
   }
 
+  async function loadIncidentes() {
+    const response = await api.get('/ong/incidents', {
+      headers: {
+        Authorization: token,
+      },
+      params: {
+        page,
+      },
+    });
+
+    setIncidents(response.data);
+  }
+
   useEffect(() => {
-    api
-      .get('/ong/incidents', {
-        headers: {
-          Authorization: ongId,
-        },
-        params: {
-          page,
-        },
-      })
-      .then((response) => {
-        setIncidents(response.data);
-        console.log(incidents);
-      });
+    loadIncidentes();
   }, [ongId, page]);
   return (
     <Container>
       <Header />
       {incidents.length > 0 ? (
-        <h1>Casos cadastrados</h1>
+        <h1> Casos cadastrados</h1>
       ) : (
         <h1>Nenhum Caso Cadastrado</h1>
       )}
@@ -90,7 +92,7 @@ export default function Profile() {
         <span>Página {page}</span>
         <button
           type="button"
-          disabled={page > 2 && incidents.length === 0}
+          disabled={page >= 1 && incidents.length === 0}
           onClick={() => handlePage('next')}
         >
           <FiArrowRight size={20} color="##41414d" />

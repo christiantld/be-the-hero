@@ -3,7 +3,8 @@ import * as Yup from 'yup';
 
 class OngIncidentController {
   async index(req, res) {
-    const ong_id = req.headers.authorization;
+    const ong_id = req.userId;
+    console.log(ong_id);
     const { page = 1 } = req.query;
 
     const [count] = await connection('incidents')
@@ -30,20 +31,20 @@ class OngIncidentController {
   }
 
   async store(req, res) {
-    // const schema = Yup.object().shape({
-    //   title: Yup.string().required(),
-    //   description: Yup.string().required(),
-    //   value: Yup.string(),
-    // });
+    const schema = Yup.object().shape({
+      title: Yup.string().required(),
+      description: Yup.string().required(),
+      value: Yup.string(),
+    });
 
-    // if (!(await schema.isValid(req.body))) {
-    //   return res.status(400).json({
-    //     error: 'Validation fails',
-    //   });
-    // }
+    if (!(await schema.isValid(req.body))) {
+      return res.status(400).json({
+        error: 'Validation fails',
+      });
+    }
 
     const { title, description, value } = req.body;
-    const ong_id = req.headers.authorization;
+    const ong_id = req.userId;
 
     const [id] = await connection('incidents').insert({
       title,
@@ -57,7 +58,7 @@ class OngIncidentController {
 
   async delete(req, res) {
     const { id } = req.params;
-    const ong_id = req.headers.authorization;
+    const ong_id = req.userId;
 
     const incident = await connection('incidents')
       .where('id', id)
